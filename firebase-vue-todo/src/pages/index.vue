@@ -5,7 +5,7 @@
     <todo-List
       :todos="todos"
       @handleParentDeleteTodo = "handleParentDeleteTodo"
-      @handleParentCompleteTodo = "handleParentComplateTodo" />
+      @handleParentCompleteTodo = "handleParentCompleteTodo" />
   </div>
 </template>
 
@@ -14,7 +14,6 @@ import TodoForm from '@/components/TodoForm'
   ;
 import TodoList from '@/components/TodoList'
   ;
-
 
 export default {
   name: 'Todo',
@@ -44,5 +43,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
