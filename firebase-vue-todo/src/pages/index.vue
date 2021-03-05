@@ -1,0 +1,48 @@
+<template>
+  <div>
+    <h1>Todoリスト</h1>
+    <todo-form @handleParentAddTodo="handleParentAddTodo"/>
+    <todo-List
+      :todos="todos"
+      @handleParentDeleteTodo = "handleParentDeleteTodo"
+      @handleParentCompleteTodo = "handleParentComplateTodo" />
+  </div>
+</template>
+
+<script>
+import TodoForm from '@/components/TodoForm'
+  ;
+import TodoList from '@/components/TodoList'
+  ;
+
+
+export default {
+  name: 'Todo',
+  components: {
+    TodoForm,
+    TodoList,
+  },
+  data() {
+    return {
+      todos: [],
+    };
+  },
+  methods: {
+    handleParentAddTodo(value) {
+      if (value) {
+        this.todos.unshift({ text: value, complete: false });
+      }
+    },
+    handleParentDeleteTodo(index) {
+      this.todos.splice(index, 1);
+    },
+    handleParentCompleteTodo(index) {
+      this.todos[index].complete = !this.todo[index].complete;
+    },
+  },
+};
+</script>
+
+<style scoped>
+
+</style>
