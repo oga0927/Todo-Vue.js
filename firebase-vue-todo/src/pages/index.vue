@@ -2,7 +2,10 @@
   <div>
     <h1>Todoリスト</h1>
     <todo-form @handleParentAddTodo="handleParentAddTodo"/>
-    <todo-list :todos="todos" />
+    <todo-list
+      :todos="todos"
+      @handleParentDeleteTodo="handleParentDeleteTodo"
+      @handleParentCompleteTodo="handleParentCompleteTodo"/>
   </div>
 </template>
 
@@ -27,12 +30,15 @@ export default {
   methods: {
     handleParentAddTodo(value) {
       if (value) {
-        this.todos.unshift({ text: value });
+        this.todos.unshift({ text: value, complete: false });
       }
     },
     handleParentDeleteTodo(index) {
       // splice()は第一引数でindexの配列位置を指定して、第二引数で渡した数字の分だけ要素を削除する
       this.todos.splice(index, 1);
+    },
+    handleParentCompleteTodo(index) {
+      this.todos[index].complete = !this.todos[index].complete;
     },
   },
 };
