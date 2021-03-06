@@ -23,6 +23,8 @@ export default {
     handleAddTodo() {
       // $emitで呼び出し後、第一引数に関数名、第二引数に渡したい値
       this.$emit('handleParentAddTodo', this.value);
+      // インプットステータスの初期化
+      this.value = '';
     },
   },
 };
